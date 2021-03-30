@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+<center>
+  <h1>Cette page affichera le descriptif du stage ayant pour identifiant {{stage.id}}</h1>
+</center>
+{% endblock %}
+
+{% block contenu %}
+
+<div class="card border-dark mb-3" style="max-width: 100%;">
+  <div class="card-header">{{stage.intitule}} </div>
+  <div class="card-body text-dark">
+    <center>
+      <img src={{stage.entreprise.logo}}>
+    </center>
+    <ul class="list-group">
+      <li class="list-group-item"><b>Prérequis</b>: {{stage.competencesRequises}} </li>
+      <li class="list-group-item"><b>Expérience</b>: {{stage.experienceRequise}} </li>
+      <li class="list-group-item"><b>Durée </b>: {{stage.duree}}</li>
+      <li class="list-group-item"><b>Formation</b>: {{stage.formation.intitule}} </li>
+      <li class="list-group-item"><b>Date d'ajout</b> : {{stage.dateDebut}} </li>
+      <li class="list-group-item"><b>Contact</b> :{{stage.entreprise.adresse}}</li>
+      <li class="list-group-item"><b>Description</b>: {{stage.description}}</li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

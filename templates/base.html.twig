@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}ProStage{% endblock %}</title>
+
+  <!-- BLOC DE FEUILLE DE STYLE -->
+  {% block stylesheets %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  {% endblock %}
+</head>
+<body >
+  <div class="container-fluid">
+
+
+
+
+    <!-- BLOC DE L ENTETE -->
+    <div class="row">
+      <div class="col-md-12">
+        <br>
+      {% block header %}
+      {% endblock %}
+      <br>
+    </div>
+
+      <!-- BLOC DE NAVIGATION -->
+
+      {% block navigation %}
+
+      {# BARRE DE NAVIGATION #}
+      {# BOUTON ACCEUIL #}
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: solid; border-width:2px; border-color: #c9c7c7;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{path('pro_stage')}}">ProStage</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+              {# MENU DÉROULANT entreprises  #}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Entreprises</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {% block boutonsEntreprises %}
+                  {% endblock %}
+                  <li><a class="dropdown-item" href="{{path('pro_stage_entreprises_avec_id', {idEntreprise:'IBM'})}}">IBM</a></li>
+                  <li><a class="dropdown-item" href="{{path('pro_stage_entreprises_avec_id',{idEntreprise:'UBISOFT'})}}">UBISOFT</a></li>
+                  <li><a class="dropdown-item" href="{{path('pro_stage_entreprises_avec_id',{idEntreprise:'SAFRAN'})}}">SAFRAN</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{{path('pro_stage_entreprises')}}">Toutes Les Entreprises</a></li>
+                </ul>
+              </li>
+
+              {# MENU DÉROULANT FORMATION  #}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Formations</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {% block boutonsFormations %}
+                  {% endblock %}
+                  <li><a class="dropdown-item" href="{{path('pro_stage_formations_avec_id',{idFormation:'Dut Info'})}}">DUT INFO</a></li>
+                  <li><a class="dropdown-item" href="{{path('pro_stage_formations_avec_id',{idFormation:'Dut GIM'})}}">DUT GIM</a></li>
+                  <li><a class="dropdown-item" href="{{path('pro_stage_formations_avec_id',{idFormation:'LP Metier du Numerique'})}}">LP METIER DU NUMERIQUE</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Toutes formations</a></li>
+                </ul>
+              </li>
+
+              {# MENU DEROULANT STAGE #}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Stages</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{{path('pro_stage_stages_ajout')}}"> Ajouter un Stage </a></li>
+                  <li><a class="dropdown-item" href="#">Supprimer/modifier un stage</a></li>
+                </ul>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+
+
+
+
+      </nav>
+
+      {% endblock %}
+      <!-- BLOC DE CONTENU -->
+          <div class="row  mx-3 mt-3">
+      {% block contenu %}
+      {% endblock %}
+        </div>
+      <!-- BLOC DE FOOTER -->
+      {% block Footer %}
+    {% endblock %}
+
+    <!-- BLOC DE FEUILLE DE JAVASCRIPT -->
+    {% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    {% endblock %}
+  </div>
+</body>
+
+</html>

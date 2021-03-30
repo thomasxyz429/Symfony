@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+
+{% block header %}
+<center>
+  <h1>Entreprises</h1>
+</center>
+{% endblock %}
+
+{% block contenu %}
+{# Ajout Entrperise #}
+  <a href="{{path('pro_stage_ajouterentreprise')}}"> <button type="button" class="btn btn-primary">+ Ajouter Une Entreprise</button></a>
+
+
+<!-- Entreprise  -->
+{% for EntrepriseCourant in Entreprises %}
+<div class="card my-3">
+  <h5 class="card-header"><img src= {{EntrepriseCourant.logo}} width="50" height="50" class="mx-1"> -{{EntrepriseCourant.nom}}-</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{EntrepriseCourant.milieu}}</h5>
+    <p class="card-text">{{EntrepriseCourant.adresse}}</p>
+    <a href="{{path('pro_stage_entreprises_avec_id', {idEntreprise:EntrepriseCourant.nom})}}" class="btn btn-dark">Voir ses offres</a>
+    <a href="{{path('pro_stage_modifierentreprise', {id:EntrepriseCourant.id})}}" class="btn btn-secondary">Modifier l'entreprise</a>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

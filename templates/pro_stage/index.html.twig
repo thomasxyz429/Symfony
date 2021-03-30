@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+
+{% block header %}
+<center>
+  <h1>Bienvenue sur la page d'accueil de Prostages</h1>
+</center>
+<br>
+{% endblock %}
+
+{% block boutonsEntreprises %}
+<!--AJOUT DES BOUTONS ENTREPRISES -->
+{% for nomEntrepriseCourant in nomEntreprises %}
+<li><a class="dropdown-item" href="{{path('pro_stage_entreprises_avec_id', {idEntreprise:nomEntrepriseCourant.nom})}}">{{nomEntrepriseCourant.nom}}</a></li>
+{% endfor %}
+{% endblock %}
+
+{% block boutonsFormations %}
+<!--AJOUT DES BOUTONS FORMATIONS -->
+{% for nomFormationsCourant in nomFormations %}
+<li><a class="dropdown-item" href="{{path('pro_stage_formations_avec_id', {idFormation:nomFormationsCourant.intitule})}}">{{nomFormationsCourant.intitule}}</a></li>
+{% endfor %}
+{% endblock %}
+
+{% block contenu %}
+<!-- STAGE  -->
+{% for stageCourant in stages %}
+<div class="card text-center mx-1 my-1" style="width: 18rem; margin-left: 5%;">
+  <img src= {{stageCourant.entreprise.logo}} class="card-img-top" width="200" height="200" alt="stageCourant.id">
+  <div class="card-body">
+    <h5 class="card-title"> {{stageCourant.intitule}} - {{stageCourant.entreprise.nom}}</h5>
+    <p class="card-text">{{stageCourant.description}}</p>
+    </div>
+    <div class="card-body">
+      <a href="{{path('pro_stage_stages',{id:stageCourant.id})}}" class="btn btn-primary">En savoir plus </a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

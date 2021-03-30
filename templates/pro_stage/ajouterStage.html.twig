@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+<center>
+  <h1>Formulaire de creation d'entreprise</h1>
+</center>
+{% endblock %}
+
+{% block contenu %}
+
+{{ form_start(vueFormulaireStage) }}
+{{ form_row(vueFormulaireStage.idStage,{'label':'Code d\'identification'}) }}
+{{ form_row(vueFormulaireStage.intitule,{'attr':{'placeholder': "ex: Recherche apprentie stagiaire..."}}) }}
+{{ form_row(vueFormulaireStage.dateDebut, {'attr':{'placeholder': "jj-mm-aaaa "},'label':'Date de début'}) }}
+{{ form_row(vueFormulaireStage.duree, {'attr':{'placeholder': "ex: 8 jours"},'label':"Durée du stage"}) }}
+{{ form_row(vueFormulaireStage.competencesRequises, {'attr':{'placeholder': "ex: Programmation...."}}) }}
+{{ form_row(vueFormulaireStage.experienceRequise, {'attr':{'placeholder':"ex: 2 ans...."}}) }}
+{{ form_row(vueFormulaireStage.description, {'label': "Description du stage"}) }}
+<br>
+Entreprise
+{{ form_row(vueFormulaireStage.entreprise.idEntreprise,{'label':"identifiant de l'entreprise"}) }}
+{{ form_row(vueFormulaireStage.entreprise.nom,{'attr':{'placeholder': "Nom de l'entreprise..."}}) }}
+{{ form_row(vueFormulaireStage.entreprise.adresse, {'attr':{'placeholder': " ex: 1 rue des Macarons , 64600, Anglet "}}) }}
+{{ form_row(vueFormulaireStage.entreprise.milieu, {'attr':{'placeholder': " Domaine d'activité principale..."},'label':"Domaine d'aticvité"}) }}
+{{ form_row(vueFormulaireStage.entreprise.logo, {'attr':{'placeholder': "URL de votre logo...."}}) }}
+
+{{ form_row(vueFormulaireStage.formation,{'label':"Pour quelle formation" }) }}
+<br>
+<button type="submit" class="btn btn-primary">Enregister</button>
+{{ form_end(vueFormulaireStage) }}
+
+{% endblock %}

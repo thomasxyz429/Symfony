@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+<center>
+  <h1>Formulaire {{objectif}} d'entreprise</h1>
+</center>
+{% endblock %}
+
+{% block contenu %}
+
+{{ form_start(vueFormulaireEntreprise) }}
+{{ form_row(vueFormulaireEntreprise.idEntreprise,{'label':"identifiant de l'entreprise"}) }}
+{{ form_row(vueFormulaireEntreprise.nom,{'attr':{'placeholder': "Nom de l'entreprise..."}}) }}
+{{ form_row(vueFormulaireEntreprise.adresse, {'attr':{'placeholder': " 1 rue des Macarons , 64600, Anglet "}}) }}
+{{ form_row(vueFormulaireEntreprise.milieu, {'attr':{'placeholder': " Domaine d'activité principale..."},'label':"Domaine d'aticvité"}) }}
+{{ form_row(vueFormulaireEntreprise.logo, {'attr':{'placeholder': "URL de votre logo...."}}) }}
+<br>
+<button type="submit" class="btn btn-primary">Enregister</button>
+{{ form_end(vueFormulaireEntreprise) }}
+
+{% endblock %}

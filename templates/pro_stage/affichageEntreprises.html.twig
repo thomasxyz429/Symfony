@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+
+{% block header %}
+<center>
+  <h1>Bienvenue sur la page des Stages proposer par {{idEntreprise}}</h1>
+</center>
+{% endblock %}
+
+{% block contenu %}
+<!-- STAGE  -->
+{% for stageCourant in stages %}
+<div class="card text-center mx-1 my-1" style="width: 18rem;">
+  <img src= {{stageCourant.entreprise.logo}} class="card-img-top" width="200" height="200" alt="stageCourant.id">
+  <div class="card-body">
+    <h5 class="card-title"> {{stageCourant.intitule}}</h5>
+    <p class="card-text">{{stageCourant.description}}</p>
+    </div>
+    <div class="card-body">
+      <a href="{{path('pro_stage_stages',{id:stageCourant.id})}}" class="btn btn-primary">En savoir plus </a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
