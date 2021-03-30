@@ -1,16 +1,20 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        users_in_memory: { memory: null }
+        user_in_memory:
+            memory:
+                users:
+                    patrick: { password: $2y$10$.AQXYSaKGgij//jWLGa9DO1IMUiMVEexRG8wADcP7VoeAHzgHjLp6, roles: ROLE_ADMIN }
+                    pantxika: { password: $2y$10$8mTzoVsRVLPzyZx.cFanmOfgKcLwwghrWra6pjy2i/rXdyt9t2meC, roles: ROLE_USER }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: lazy
             provider: users_in_memory
-
+            anonymous: lazy
             # activate different ways to authenticate
+            http_basic: true
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
             # https://symfony.com/doc/current/security/impersonating_user.html
@@ -19,5 +23,5 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
