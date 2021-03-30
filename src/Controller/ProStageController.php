@@ -116,7 +116,7 @@ class ProStageController extends AbstractController
         }
 
         /**
-        * @Route("/admin/stage/ajout", name="pro_stage_stages_ajout")
+        * @Route("/admin/profile/stage/ajout", name="pro_stage_stages_ajout")
         */
         public function ajouterStage(Request $request, EntityManagerInterface $manager): Response
         {
