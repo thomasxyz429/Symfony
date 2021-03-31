@@ -77,7 +77,14 @@
                 </ul>
               </li>
             </ul>
-
+          </div>
+          <form class="form-inline my-2 my-lg-0">
+          {% if is_granted('ROLE_USER') %}
+          <a href="{{path('app_logout')}}"><button class="btn btn-outline-danger my-2 my-sm-0" >Déconnexion</button></a>
+        {% else %}
+          <a href="{{path('app_login')}}"><button class="btn btn-outline-primary my-2 my-sm-0" >connexion</button></a>
+        {% endif %}
+          </form>
           </div>
         </div>
 
