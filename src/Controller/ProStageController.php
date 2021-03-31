@@ -20,14 +20,13 @@ class ProStageController extends AbstractController
   /**
   * @Route("/", name="pro_stage")
   */
-  public function index(StageRepository $repositoryStages, FormationRepository $repositoryFormation ,EntrepriseRepository $repositoryEntreprises): Response
+  public function index(StageRepository $repositoryStages): Response
   {
-      $NomFormations=$repositoryFormation->findByNom();
-      $NomEntreprises=$repositoryEntreprises->findByNom();
+
     //RECUERER LES STAGES
     $stages=$repositoryStages->findByAccueilEtEntreprise();
     //ENVOYER LES STAGES
-    return $this->render('pro_stage/index.html.twig', ["stages"=>$stages,"nomFormations"=> $NomFormations,"nomEntreprises"=>$NomEntreprises]);
+    return $this->render('pro_stage/index.html.twig', ["stages"=>$stages]);
   }
 
     /**

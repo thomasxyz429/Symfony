@@ -8,20 +8,6 @@
 <br>
 {% endblock %}
 
-{% block boutonsEntreprises %}
-<!--AJOUT DES BOUTONS ENTREPRISES -->
-{% for nomEntrepriseCourant in nomEntreprises %}
-<li><a class="dropdown-item" href="{{path('pro_stage_entreprises_avec_id', {idEntreprise:nomEntrepriseCourant.nom})}}">{{nomEntrepriseCourant.nom}}</a></li>
-{% endfor %}
-{% endblock %}
-
-{% block boutonsFormations %}
-<!--AJOUT DES BOUTONS FORMATIONS -->
-{% for nomFormationsCourant in nomFormations %}
-<li><a class="dropdown-item" href="{{path('pro_stage_formations_avec_id', {idFormation:nomFormationsCourant.intitule})}}">{{nomFormationsCourant.intitule}}</a></li>
-{% endfor %}
-{% endblock %}
-
 {% block contenu %}
 <!-- STAGE  -->
 {% for stageCourant in stages %}

@@ -44,8 +44,6 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Entreprises</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  {% block boutonsEntreprises %}
-                  {% endblock %}
                   <li><a class="dropdown-item" href="{{path('pro_stage_entreprises_avec_id', {idEntreprise:'IBM'})}}">IBM</a></li>
                   <li><a class="dropdown-item" href="{{path('pro_stage_entreprises_avec_id',{idEntreprise:'UBISOFT'})}}">UBISOFT</a></li>
                   <li><a class="dropdown-item" href="{{path('pro_stage_entreprises_avec_id',{idEntreprise:'SAFRAN'})}}">SAFRAN</a></li>
@@ -58,13 +56,11 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Formations</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  {% block boutonsFormations %}
-                  {% endblock %}
-                  <li><a class="dropdown-item" href="{{path('pro_stage_formations_avec_id',{idFormation:'Dut Info'})}}">DUT INFO</a></li>
-                  <li><a class="dropdown-item" href="{{path('pro_stage_formations_avec_id',{idFormation:'Dut GIM'})}}">DUT GIM</a></li>
-                  <li><a class="dropdown-item" href="{{path('pro_stage_formations_avec_id',{idFormation:'LP Metier du Numerique'})}}">LP METIER DU NUMERIQUE</a></li>
+                  <li><a class="dropdown-item" href="{{path('formation_show',{id:'19'})}}">DUT INFO</a></li>
+                  <li><a class="dropdown-item" href="{{path('formation_show',{id:'21'})}}">DUT GIM</a></li>
+                  <li><a class="dropdown-item" href="{{path('formation_show',{id:'20'})}}">LP METIER DU NUMERIQUE</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Toutes formations</a></li>
+                  <li><a class="dropdown-item" href="{{path('formation_index')}}">Toutes formations</a></li>
                 </ul>
               </li>
 
