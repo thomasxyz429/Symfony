@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+<center>
+  <h1>Inscription</h1>
+</center>
+{% endblock %}
+
+{% block contenu %}
+
+{{ form_start(vueFormulaireUser) }}
+{{ form_row(vueFormulaireUser.nom,{'attr':{'placeholder': "thomas"}}) }}
+{{ form_row(vueFormulaireUser.prenom, {'attr':{'placeholder': "galinie "}}) }}
+{{ form_row(vueFormulaireUser.username, {'attr':{'placeholder': "matox"},'label':"Pseudo"}) }}
+{{ form_row(vueFormulaireUser.password, {'attr':{'placeholder': "123456"},"label":"Mot de passe"}) }}
+<br>
+<button type="submit" class="btn btn-primary">S'inscrire </button>
+{{ form_end(vueFormulaireUser) }}
+
+{% endblock %}
