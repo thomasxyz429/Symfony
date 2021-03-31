@@ -69,6 +69,7 @@
               </li>
 
               {# MENU DEROULANT STAGE #}
+              {% if is_granted('ROLE_USER') %}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Stages</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -76,14 +77,16 @@
                   <li><a class="dropdown-item" href="#">Supprimer/modifier un stage</a></li>
                 </ul>
               </li>
-            </ul>
-            {% if is_granted('ROLE_USER') %}
-                 <a href="{{path('app_logout')}}"> <button class="btn btn-outline-success my-2 my-sm-0 my-lg-0">Déconnexion</button></a>
-                   {% else %}
-                  <a href="{{path('app_login')}}"> <button class="btn btn-outline-success my-2 my-sm-0 my-lg-0">Connexion</button></a>
-                   {% endif %}
-          </div>
-        </div>
+                {% endif %}
+              </ul>
+              {% if is_granted('ROLE_USER') %}
+              <div style="margin-right:5px;">{{app.user.username}}</div>
+              <a href="{{path('app_logout')}}"><button class="btn btn-outline-danger my-2 my-sm-0 " >Déconnexion</button></a>
+              {% else %}
+                <a href="{{path('app_login')}}"><button class="btn btn-outline-primary my-2 my-sm-0" >connexion</button></a>
+              {% endif %}
+              </div>
+              </div>
 
 
 

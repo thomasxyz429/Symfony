@@ -9,8 +9,9 @@
 
 {% block contenu %}
 {# Ajout Entrperise #}
+{% if is_granted('ROLE_ADMIN') %}
   <a href="{{path('pro_stage_ajouterentreprise')}}"> <button type="button" class="btn btn-primary">+ Ajouter Une Entreprise</button></a>
-
+{% endif %}
 
 <!-- Entreprise  -->
 {% for EntrepriseCourant in Entreprises %}
