@@ -13,20 +13,16 @@ security:
         main:
             anonymous: true
             provider: app_user_provider
-
+            logout:
+                path:   app_logout
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
-
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
-            # http_basic: true
             guard:
                 authenticators:
                     - App\Security\FormulaireLoginAnthenticatorAuthenticator
-            logout:
-                path: app_logout
-                # where to redirect after logout
-                #target: pro_stage
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+            #http_basic: true
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
