@@ -4,8 +4,8 @@ security:
         users_in_memory:
             memory:
                 users:
-                    patrick: { password: $2y$10$.AQXYSaKGgij//jWLGa9DO1IMUiMVEexRG8wADcP7VoeAHzgHjLp6, roles: ROLE_ADMIN }
-                    pantxika: { password: $2y$10$8mTzoVsRVLPzyZx.cFanmOfgKcLwwghrWra6pjy2i/rXdyt9t2meC, roles: ROLE_USER }
+                    thomas: { password: $2y$10$UJnRUDj7MOPsczI5CKPhAer2ODoAJ3ixI.b9sW3U/IH0rNd4Eb3R6, roles: ROLE_ADMIN }
+                    arthur: { password: $2y$10$RZz/ud0Duq7lm5SojvLQduYrlAdpOP2Ksz/48VbsR.PLY9FM0KyVC, roles: ROLE_USER }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
