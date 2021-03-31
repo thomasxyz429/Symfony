@@ -1,41 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block header %}Formation index{% endblock %}
+{% block header %}Formation {% endblock %}
 
 {% block contenu %}
-    <h1>Formation index</h1>
+    <h1>Formations </h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>IdFormation</th>
-                <th>Intitule</th>
-                <th>Niveau</th>
-                <th>Ville</th>
-                <th>actions</th>
-            </tr>
-        </thead>
+
         <tbody>
         {% for formation in formations %}
-            <tr>
-                <td>{{ formation.id }}</td>
-                <td>{{ formation.idFormation }}</td>
-                <td>{{ formation.intitule }}</td>
-                <td>{{ formation.niveau }}</td>
-                <td>{{ formation.ville }}</td>
-                <td>
-                    <a href="{{ path('formation_show', {'id': formation.id}) }}">show</a>
-                    <a href="{{ path('formation_edit', {'id': formation.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <div class="card my-3">
+          <h5 class="card-header"> {{formation.intitule}}</h5>
+          <div class="card-body">
+            <h5 class="card-title">{{formation.niveau}}</h5>
+            <p class="card-text">{{formation.ville}}</p>
+            <a href="{{ path('formation_show', {'id': formation.id}) }}" class="btn btn-dark">voir</a>
+            {% if is_granted('ROLE_ADMIN') %}
+          <a href="{{ path('formation_show', {'id': formation.id}) }}" class="btn btn-secondary">modifier</a>
+            {% endif %}
 
-    <a href="{{ path('formation_new') }}">Create new</a>
+          </div>
+        </div>
+        {% else %}
+        <h3> Aucune formation n'existe</h3>
+        {% endfor %}
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('formation_new') }}"><button type="button" class="btn btn-primary">Créer</button></a>
+        {% endif %}
 {% endblock %}
